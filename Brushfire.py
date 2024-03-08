@@ -4,7 +4,6 @@ import numpy as np
 # Initialize an empty list to store the configuration space
 cspace = []
 
-
 # Parse cspace txt and save in memory
 with open("cspace_low_res.txt", "r") as file:
     # Read each line in the file
@@ -17,3 +16,6 @@ with open("cspace_low_res.txt", "r") as file:
 
         cspace.append(entries)
 
+cspace_array = np.array(cspace)
+
+print(cspace_array.max())
