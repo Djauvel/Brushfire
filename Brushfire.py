@@ -35,9 +35,13 @@ def voronoi(obstacles):
             if obstacles[i,j] != 0:
                 obstacle_layers[i,j,obstacles[i,j]] = 1
 
+    voronoi_array = np.array()
+
+    return voronoi_array
+
 
 
 
 #Test print
-filepath = "testOutput.txt"
-np.savetxt(filepath, obstacles[:,:,1], fmt = "%d")
+#filepath = "testOutput.txt"
+#np.savetxt(filepath, obstacles[:,:,1], fmt = "%d")
