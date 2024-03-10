@@ -20,12 +20,16 @@ with open("cspace_low_res.txt", "r") as file:
 # Remove all float notation
 cspace_array = np.round(np.array(cspace)).astype(int)
 
+# Dimensions identical to the source cpsace array, but with 3 dimensions
+dimensions = (cspace_array.shape[0], cspace_array.shape[1], np.max(cspace_array)+1)
+
 # Instatiate an array to store each obstacle layer
-obstacles = np.ndarray((cspace_array.shape[0],cspace_array.shape[1],np.max(cspace_array)+1))
+obstacles = np.zeros(dimensions)
+
 
 #Separate each layer
-for i in range(cspace_array.shape[0]-1):
-    for j in range(cspace_array.shape[1]-1):
+for i in range(cspace_array.shape[0]):
+    for j in range(cspace_array.shape[1]):
         #print(f"Dimensions: {cspace_array.shape}")
         #print(f"i: {i}, j: {j}")
         #print(f"cspace_array: {cspace_array[i,j]}")
@@ -35,4 +39,4 @@ for i in range(cspace_array.shape[0]-1):
 
 #Test print
 filepath = "testOutput.txt"
-np.savetxt(filepath, obstacles[:,:,2], fmt = "%d")
+np.savetxt(filepath, obstacles[:,:,3], fmt = "%d")
